@@ -28,7 +28,7 @@ export default function App() {
     formData.append("pdf", selected);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/upload", formData);
+      const res = await axios.post("https://pdf-qa-backend-udoa.onrender.com/api/upload", formData);
       setCharCount(res.data.characterCount);
       setUploadStatus({
         type: "success",
@@ -44,7 +44,7 @@ export default function App() {
 
   const handleReset = async () => {
     try {
-      await axios.post("http://localhost:5000/api/reset");
+     await axios.post("https://pdf-qa-backend-udoa.onrender.com/api/reset");
     } catch (err) {
       console.error(err);
     }
@@ -72,7 +72,7 @@ export default function App() {
     setIsStreaming(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/ask", {
+     const response = await fetch("https://pdf-qa-backend-udoa.onrender.com/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userQ }),
